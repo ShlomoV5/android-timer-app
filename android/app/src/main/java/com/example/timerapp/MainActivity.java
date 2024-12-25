@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import android.content.res.Configuration;
+import android.util.TypedValue;
 
 public class MainActivity extends AppCompatActivity {
 
