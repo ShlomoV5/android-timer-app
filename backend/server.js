@@ -55,6 +55,10 @@ const autoKillTimers = () => {
 // Run auto-kill every minute
 setInterval(autoKillTimers, 60000);
 
+app.get('/', (req, res) => {
+    res.render('home');
+});
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
