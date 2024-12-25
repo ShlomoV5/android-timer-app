@@ -1,2 +1,1 @@
-# android-timer-app
-A repository for an Android timer app
+This repository is empty. Any task executed on it should be considered a new capability and needs to be created.
