@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.set('view engine', 'ejs');
 
 let timers = {};
 
@@ -29,7 +30,12 @@ app.get('/get/:timerId', (req, res) => {
     const { timerId } = req.params;
     const timeInMilliseconds = timers[timerId];
     if (timeInMilliseconds !== undefined) {
-        res.status(200).send({ timerId, timeInMilliseconds });
+        const userAgent = req.headers['user-agent'];
+        if (userAgent && userAgent.includes('Mozilla')) {
+            res.render('timer', { timerId, timeInMilliseconds });
+        } else {
+            res.status(200).send({ timerId, timeInMilliseconds });
+        }
     } else {
         res.status(404).send({ message: 'Timer not found' });
     }

@@ -20,3 +20,11 @@ This is an Android timer app with the following features:
    ```
 2. Open the project in Android Studio.
 3. Build and run the app on an Android device or emulator.
+
+## New Web App Feature
+
+The backend now includes a web app that looks and feels exactly like the Android app. When a timer link is opened in a browser, it will display a webpage with the timer.
+
+### Accessing the Timer Webpage
+
+To access the timer webpage from a browser, simply open the shared timer link in your browser. The webpage will display the timer with the same look and feel as the Android app.
