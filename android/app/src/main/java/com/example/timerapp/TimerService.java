@@ -28,6 +28,16 @@ public class TimerService extends Service {
         return binder;
     }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
     public void startTimer() {
         if (!isRunning) {
             startTime = SystemClock.uptimeMillis();
@@ -58,7 +68,11 @@ public class TimerService extends Service {
             timeInMilliseconds = SystemClock.uptimeMillis() - startTime;
             updatedTime = timeSwapBuff + timeInMilliseconds;
             // Update the timer display here
-            handler.postDelayed(this, 0);
+            if (updatedTime >= 0) {
+                handler.postDelayed(this, 0);
+            } else {
+                resetTimer();
+            }
         }
     };
 }
